@@ -1,7 +1,7 @@
 package functions
 
-import Collection.Topic
-import Collection.TopicList
+import Topic
+import TopicList
 
 fun addNewTopic(topics: TopicList) {
     print("Enter your topic header here: ")

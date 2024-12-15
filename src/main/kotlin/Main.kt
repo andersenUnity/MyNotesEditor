@@ -2,7 +2,7 @@ import functions.*
 
 
 fun main() {
-    var topicList: TopicList = mutableListOf()
+    val topicList: TopicList = mutableListOf()
 
     while (true) {
         var isNoteOpened = false

@@ -1,7 +1,7 @@
 package functions
 
-import Collection.Topic
-import Collection.TopicList
+import Topic
+import TopicList
 
 fun getNotes(topic: Topic) {
     if (topic.notes.isNotEmpty()) {
