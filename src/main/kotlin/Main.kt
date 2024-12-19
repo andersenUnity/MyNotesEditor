@@ -3,7 +3,6 @@ import functions.*
 
 fun main() {
     val topicList: TopicList = mutableListOf()
-
     while (true) {
         var isNoteOpened = false
         var numberOfSelectedTopic: Int
