@@ -16,51 +16,39 @@ fun addNewTopic(topics: TopicList) {
     }
 }
 
-fun deleteNote(
-    notes: MutableList<MutableList<String>>,
-    numberOfNote: Int?,
-    deleteAll: String?,
-): MutableList<MutableList<String>> {
-
-    if (deleteAll == "all") {
-        notes.removeAt(numberOfNote!! - 1)
-        return notes
+fun deleteTopic(topics: TopicList) {
+    print("Enter number of topic to delete: ")
+    val numberOfSelectedTopic = readln().toInt() - 1
+//    val topic = topics[numberOfSelectedTopic]
+    if (topics.isNotEmpty()) {
+//        topic.notes.clear()
+        topics.removeAt(numberOfSelectedTopic)
+        printEmptyLines()
+    } else {
+        println("You wrote \"nothing\"")
+        Thread.sleep(1000)
+        printEmptyLines()
     }
-    val paragraph = notes[numberOfNote!! - 1].toMutableList()
-    var isOpen = false
 
-    println("Which description do you want to del: ")
-    println("Enter \"all\" if you want to clear all")
-
-    while (isOpen == false) {
-
-        val userInput: String? = readlnOrNull()?.uppercase()
-
-        when {
-
-            userInput?.toIntOrNull() != null -> {
-                paragraph.removeAt(userInput.toInt() - 1)
-                notes[numberOfNote - 1] = emptyList<String>().toMutableList()
-                notes[numberOfNote - 1] = (notes[numberOfNote - 1] + paragraph).toMutableList()
-                isOpen = true
-            }
-
-            userInput == "ALL" -> {
-                notes[numberOfNote - 1] = emptyList<String>().toMutableList()
-                isOpen = true
-            }
-
-            userInput?.toIntOrNull() == null && userInput != "ALL" -> {
-                println("Wrong number of note")
-            }
-        }
-    }
-    return notes
 }
 
-fun deleteTopic(topics: MutableList<String>, numberOfNoteToDel: Int?): MutableList<String> {
+fun addNote(topic: Topic) {
+    print("Enter your note here: ")
+    val note = readln().trimStart()
+    topic.notes.add(note)
 
-    topics.removeAt(numberOfNoteToDel!! - 1)
+}
 
-    return topics
+fun deleteNote (topic: Topic) {
+    print("Enter number of note to delete: ")
+    val numberOfSelectedNote = readln().toInt() - 1
+    if (topic.notes.isNotEmpty()) {
+        topic.notes.removeAt(numberOfSelectedNote)
+        printEmptyLines()
+    } else {
+        println("You wrote \"nothing\"")
+        Thread.sleep(1000)
+        printEmptyLines()
+    }
+
 }

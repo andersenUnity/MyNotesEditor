@@ -14,7 +14,9 @@ fun printHelpNotesCommands() {
     printEmptyLines()
     println("+ - to add the notes")
     println("- - to del the notes")
+    println("\"all\" to dell all notes")
     println("q - if you want to quit topic")
+
     println("\n")
 }
 
