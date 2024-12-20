@@ -2,11 +2,14 @@ import functions.*
 
 
 fun main() {
-    val topicList: TopicList = mutableListOf()
+    val fileName = "Topic.json"
+
+    val topicList: TopicList = deserialize(fileName)
+
     while (true) {
+
         var isNoteOpened = false
         var numberOfSelectedTopic: Int
-
         printHelpTopicsCommands()
 
         if (topicList.isEmpty()) {
@@ -20,6 +23,7 @@ fun main() {
         when (commandInput) {
             "+" -> {
                 addNewTopic(topicList)
+
             }
 
             "-" -> {
@@ -27,9 +31,9 @@ fun main() {
 
             }
 
-
             "q" -> {
                 printEmptyLines()
+                serialize(topicList, fileName = fileName)
                 break
             }
 
@@ -39,6 +43,7 @@ fun main() {
 
                     if (numberOfSelectedTopic > topicList.size || numberOfSelectedTopic <= 0) {
                         println("You dont have such topic")
+                        Thread.sleep(1000)
                         continue
                     }
 
@@ -55,12 +60,12 @@ fun main() {
                         when (noteInput) {
                             "+" -> {
                                 addNote(topic)
+
                                 printEmptyLines()
                             }
 
                             "-" -> {
                                 deleteNote(topic)
-
                             }
 
                             "all" -> topic.notes.clear()

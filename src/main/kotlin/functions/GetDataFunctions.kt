@@ -4,6 +4,7 @@ import Topic
 import TopicList
 
 fun getNotes(topic: Topic) {
+
     if (topic.notes.isNotEmpty()) {
         topic.notes.forEachIndexed { index, noteContent ->
             println("${index+1}. $noteContent")

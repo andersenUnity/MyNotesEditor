@@ -23,3 +23,15 @@ fun printHelpNotesCommands() {
 fun printEmptyLines() {
     println(" \n\n\n\n\n\n\n")
 }
+
+fun printErrorEmptyInput() {
+    println("You wrote \"nothing\"")
+    Thread.sleep(1000)
+    printEmptyLines()
+}
+
+fun printErrorIncorrectInputOfNumber() {
+    println("\n\nYou wrote \"something unpredictable\"")
+    Thread.sleep(1000)
+    printEmptyLines()
+}
